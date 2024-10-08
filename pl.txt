@@ -1,0 +1,39 @@
+- region of deployment us-east-1
+- alias us-east-2
+- use s3 for remote state
+- use data block for ami
+- use locals for names 
+
+- use modules for sg-vpc-sn and s3
+use dynamic block for sg 
+ 
+
+
+
+
+
+provider "aws" {
+  region = "us-east-2"
+  shared_config_files = ["/Users/jjtech/.aws/config"]
+  shared_credentials_files = ["/Users/jjtech/.aws/credentials"]
+  profile = "terraform-user"
+
+
+
+
+here i created 
+- one vpc,
+- subnet with az useast 1a,
+- A SG with inbound 8081 and 9000 egress of 0
+ all in module
+
+- created 2 instances, refrenced the one module source, 
+- attachjed the module source and subnet output id
+
+
+created s3 module and refernced the aws alias 
+and an iam user 
+
+
+total 7 resources
+- 
